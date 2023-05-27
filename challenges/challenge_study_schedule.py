@@ -2,11 +2,11 @@ def study_schedule(permanence_period, target_time):
     if target_time is None:
         return None
 
-    students = 0
-    for star_period, finish_period in permanence_period:
-        if isinstance(star_period, int) or isinstance(finish_period, int):
+    quantity_students = 0
+    for init_time, final_time in permanence_period:
+        if not isinstance(init_time, int) or not isinstance(final_time, int):
             return None
 # Retorne a quantidade de estudantes presentes para uma entrada específica;
-    if star_period <= target_time <= finish_period:
-        students += 1
-    # raise NotImplementedError
+        if init_time <= target_time <= final_time:
+            quantity_students += 1
+    return quantity_students
